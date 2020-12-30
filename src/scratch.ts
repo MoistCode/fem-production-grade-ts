@@ -54,4 +54,7 @@
 //   | { [k: string]: JSONValue }; // <------
 
 // Generates permutations
-type Corner = `${'top' |' bottom'}-${'left' | 'right'}`
+// type Corner = `${'top' |' bottom'}-${'left' | 'right'}`;
+
+// @ts-expect-error; better option than @ts-ignore becaue if there's no error
+// it will flag this as an unused directive.

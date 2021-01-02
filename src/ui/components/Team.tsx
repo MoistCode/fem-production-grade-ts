@@ -6,11 +6,11 @@ import TeamSidebar from './TeamSidebar';
 const Team: React.FC<any> = ({ team }) => {
   console.log(
     `%c TEAM render: ${team.name}`,
-    'background-color: blue; color: white',
+    'background-color: blue; color: white'
   );
   const { channels } = team;
   return (
-    <div className="flex-1 flex">
+    <div className='flex-1 flex'>
       <TeamSidebar team={team} />
       <Switch>
         <Route exact path={`/team/${team.id}`}>
@@ -19,7 +19,7 @@ const Team: React.FC<any> = ({ team }) => {
         <Route
           exact
           path={`/team/${team.id}/channel/:channelId`}
-          children={({ match }) => (
+          children={({ match }: { match: any }) => (
             <SelectedChannel match={match} channels={channels} />
           )}
         />

@@ -6,12 +6,11 @@ import ChannelHeader from './Channel/Header';
 import ChannelMessage from './Channel/Message';
 import Loading from './Loading';
 
-
-const Channel = ({
+const Channel: React.FC<any> = ({
   channel,
 }) => {
+  const [messages, setMessages] = React.useState<any[]>();
 
-  const [messages, setMessages] = React.useState();
   useAsyncDataEffect(
     () => getChannelMessages(channel.teamId, channel.id),
     {
@@ -20,8 +19,15 @@ const Channel = ({
       otherStatesToMonitor: [channel],
     },
   );
-  if (!messages) return <Loading message="Loading messages" />;
-  if (messages.length === 0) return <Loading message="No messages" />;
+
+  if (!messages) {
+    return <Loading message="Loading messages" />
+  }
+
+  if (messages.length === 0) {
+    return <Loading message="No messages" />;
+  }
+
   console.log(
     `%c CHANNEL render: ${channel.name}`,
     'background-color: purple; color: white',

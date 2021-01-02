@@ -1,6 +1,11 @@
 import * as React from 'react';
 
-const Loading = ({ message = 'Loading...', children }) => (
+interface Props {
+  message: string;
+  children?: any;
+}
+
+const Loading: React.FC<Props> = ({ message = 'Loading...', children, }) => (
   <h1>
     {message}...
     {children}

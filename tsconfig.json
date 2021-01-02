@@ -17,6 +17,11 @@
     "noImplicitReturns": true,
     "stripInternal": true,
     "types": [],
+    "baseUrl": ".",
+    // "traceResolution": true,
+    "paths": {
+      "*": ["types'/*"]
+    }
   },
   "include": ["src"]
 }
